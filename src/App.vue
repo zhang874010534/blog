@@ -1,32 +1,74 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <el-container>
+      <el-header height="">
+        <div class="avatar">
+          <img src="./assets/images/header/avatar.jpg" alt="" />
+        </div>
+        <div class="search">
+          <i class="el-icon-search"></i>
+        </div>
+        <el-input
+          v-model="input"
+          placeholder="Search for year or work"
+          class="searchInput"
+        ></el-input>
+      </el-header>
+      <el-container>
+        <!-- 侧边栏 -->
+        <el-aside width="200px">
+          <el-menu>
+            <el-menu-item index="4">
+              <i class="el-icon-setting"></i>
+              <span slot="title">Home</span>
+            </el-menu-item>
+          </el-menu>
+        </el-aside>
+        <!-- 内容展示部分 -->
+        <el-main height="200px" class="main">
+          <router-view />
+        </el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style lang="scss">
+.el-container .el-header {
+  display: flex;
+  padding: 0 0 15px 0;
+  align-items: center;
+  .avatar {
+    width: 200px;
+    flex-shrink: 0;
+  }
+  .avatar img {
+    border-radius: 50%;
+    height: 50px;
+  }
+  .search {
+    margin-left: 20px;
+    color: #a2abc7;
+  }
+  .searchInput input {
+    background-color: #eceef8;
+    border: none;
+  }
 }
-
-#nav {
-  padding: 30px;
+.el-aside {
+  background-color: pink;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.el-main {
+  background-color: skyblue;
+  margin-left: 20px;
 }
 </style>
+<script>
+export default {
+  data() {
+    return {
+      input: ''
+    };
+  }
+};
+</script>
