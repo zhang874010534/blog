@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <router-link to="/project">123</router-link>
     <el-container>
       <el-header height="">
         <div class="avatar">
@@ -17,20 +18,20 @@
       <el-container>
         <!-- 侧边栏 -->
         <el-aside width="200px">
-          <el-menu default-active="1">
-            <el-menu-item index="1">
-              <i class="el-icon-s-home"></i>
-              <span slot="title">首页</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-              <i class="el-icon-setting"></i>
-              <span slot="title">项目</span>
+          <el-menu default-active="home" router>
+            <el-menu-item
+              v-for="item in asideBar"
+              :key="item.index"
+              :index="item.index"
+            >
+              <i :class="item.icon"></i>
+              <span slot="title">{{ item.title }}</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
         <!-- 内容展示部分 -->
         <el-main height="200px" class="main">
-          <router-view />
+          <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -95,8 +96,21 @@
 export default {
   data() {
     return {
-      input: ''
+      input: '',
+      asideBar: [
+        {
+          index: 'home',
+          icon: 'el-icon-s-home',
+          title: '首页'
+        },
+        {
+          index: 'project',
+          icon: 'el-icon-setting',
+          title: '项目'
+        }
+      ]
     };
-  }
+  },
+  methods: {}
 };
 </script>
