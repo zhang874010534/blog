@@ -17,10 +17,14 @@
       <el-container>
         <!-- 侧边栏 -->
         <el-aside width="200px">
-          <el-menu>
+          <el-menu default-active="1">
+            <el-menu-item index="1">
+              <i class="el-icon-s-home"></i>
+              <span slot="title">首页</span>
+            </el-menu-item>
             <el-menu-item index="4">
               <i class="el-icon-setting"></i>
-              <span slot="title">Home</span>
+              <span slot="title">项目</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
@@ -57,6 +61,29 @@
 }
 .el-aside {
   background-color: pink;
+  .el-menu {
+    background-color: #eceef8;
+    border: none;
+  }
+  @mixin item($color) {
+    color: $color;
+    i {
+      color: $color;
+    }
+  }
+  .el-menu-item {
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    @include item(#a8b0ca);
+    &:hover {
+      background-color: #ffffff;
+      @include item(#4c5ece);
+    }
+    &.is-active {
+      background-color: white;
+    }
+  }
 }
 .el-main {
   background-color: skyblue;
