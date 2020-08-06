@@ -82,6 +82,7 @@
     }
     &.is-active {
       background-color: white;
+      @include item(white);
     }
   }
 }
