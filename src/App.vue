@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <router-link to="/project">123</router-link>
     <el-container>
       <el-header height="">
         <div class="avatar">
@@ -61,7 +60,6 @@
   }
 }
 .el-aside {
-  background-color: pink;
   .el-menu {
     background-color: #eceef8;
     border: none;
@@ -87,8 +85,8 @@
     }
   }
 }
-.el-main {
-  background-color: skyblue;
+.el-main.main {
+  padding: 0;
   margin-left: 20px;
 }
 </style>
