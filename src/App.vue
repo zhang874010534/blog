@@ -36,7 +36,28 @@
     </el-container>
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      input: '',
+      asideBar: [
+        {
+          index: 'home',
+          icon: 'el-icon-s-home',
+          title: '首页'
+        },
+        {
+          index: 'project',
+          icon: 'el-icon-setting',
+          title: '项目'
+        }
+      ]
+    };
+  },
+  methods: {}
+};
+</script>
 <style lang="scss">
 .el-container .el-header {
   display: flex;
@@ -90,25 +111,4 @@
   margin-left: 20px;
 }
 </style>
-<script>
-export default {
-  data() {
-    return {
-      input: '',
-      asideBar: [
-        {
-          index: 'home',
-          icon: 'el-icon-s-home',
-          title: '首页'
-        },
-        {
-          index: 'project',
-          icon: 'el-icon-setting',
-          title: '项目'
-        }
-      ]
-    };
-  },
-  methods: {}
-};
-</script>
+
